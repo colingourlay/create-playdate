@@ -1,6 +1,6 @@
 {
 	"name": "create-playdate",
-	"version": "1.0.0-pre",
+	"version": "1.0.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/colingourlay/create-playdate"
