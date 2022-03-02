@@ -1,0 +1,32 @@
+{
+	"name": "create-playdate",
+	"version": "1.0.0-pre",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/colingourlay/create-playdate"
+	},
+	"license": "MIT",
+	"bin": "./bin.js",
+	"main": "./index.js",
+	"dependencies": {
+		"kleur": "^4.1.4",
+		"prompts": "^2.4.2"
+	},
+	"devDependencies": {
+		"@types/prettier": "^2.4.2",
+		"@types/prompts": "^2.0.14",
+		"eslint": "^8.10.0",
+		"prettier": "^2.5.0"
+	},
+	"scripts": {
+		"lint": "eslint --ignore-path .gitignore \"./*.js\" && npm run check-format",
+		"format": "npm run check-format -- --write",
+		"check-format": "prettier --check . --config .prettierrc --ignore-path .gitignore"
+	},
+	"files": [
+		"bin.js",
+		"index.js",
+		"template"
+	],
+	"type": "module"
+}
