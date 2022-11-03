@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'fs';
 import path from 'path';
-import { bold, cyan, gray, green, red } from 'kleur/colors';
+import { bold, cyan, gray, green } from 'kleur/colors';
 import prompts from 'prompts';
 import { create } from './index.js';
 
