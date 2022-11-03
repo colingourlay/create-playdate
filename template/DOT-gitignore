@@ -24,5 +24,8 @@ node_modules/
 .yarn/install-state.gz
 .pnp.*
 
+# Generated Playdate assets
+pdxinfo
+
 # Compiled Playdate games
 *.pdx
