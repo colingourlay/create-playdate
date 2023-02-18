@@ -10,6 +10,6 @@
 		"preview:release": "NODE_ENV=production pd preview"
 	},
 	"dependencies": {
-		"pddx": "^1.0.1"
+		"pddx": "^1.0.2"
 	}
 }
