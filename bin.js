@@ -61,10 +61,8 @@ async function main() {
 		console.log(`  ${i++}: ${bold(cyan(`cd ${relative}`))}`);
 	}
 
-	console.log(`  ${i++}: ${bold(cyan('npm install'))} (or pnpm install, etc)`);
-	// prettier-ignore
-	console.log(`  ${i++}: ${bold(cyan('git init && git add -A && git commit -m "Initial commit"'))} (optional)`);
-	console.log(`  ${i++}: ${bold(cyan('npm start'))}`);
+	console.log(`  ${i++}: ${bold(cyan('npm install'))} (or ${bold(cyan('yarn'))})`);
+	console.log(`  ${i++}: ${bold(cyan('npm start'))} (or ${bold(cyan('yarn start'))})`);
 
 	console.log(`\nTo stop the watcher, hit ${bold(cyan('Ctrl-C'))}`);
 }
