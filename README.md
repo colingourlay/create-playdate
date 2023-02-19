@@ -6,7 +6,7 @@ Manage a Playdate Lua SDK project with Node.js
 
 ```bash
 # create a new project in the current directory
-npm create playdate # or: yarn create playdate
+npm create playdate
 
 # create a new project in my-game
 npm create playdate my-game
