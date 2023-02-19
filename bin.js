@@ -61,8 +61,8 @@ async function main() {
 		console.log(`  ${i++}: ${bold(cyan(`cd ${relative}`))}`);
 	}
 
-	console.log(`  ${i++}: ${bold(cyan('npm install'))} (or ${bold(cyan('yarn'))})`);
-	console.log(`  ${i++}: ${bold(cyan('npm start'))} (or ${bold(cyan('yarn start'))})`);
+	console.log(`  ${i++}: ${bold(cyan('npm install'))}`);
+	console.log(`  ${i++}: ${bold(cyan('npm start'))}`);
 
 	console.log(`\nTo stop the watcher, hit ${bold(cyan('Ctrl-C'))}`);
 }
