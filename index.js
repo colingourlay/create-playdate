@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 /** @param {string} cwd */
-export async function create(cwd) {
+export async function create(cwd, name, author = null) {
 	mkdirp(cwd);
 
 	const projectName = toValidProjectName(path.basename(path.resolve(cwd)));
@@ -14,8 +14,13 @@ export async function create(cwd) {
 	['package.json', 'README.md'].forEach((fileName) => {
 		const filePath = path.join(cwd, fileName);
 		const fileContents = fs.readFileSync(filePath, 'utf-8');
+		const templatedFileContents = fileContents
+			.replaceAll(/~PROJECT_NAME~/g, projectName)
+			.replaceAll(/~AUTHOR_PROP~/g, author ? `\n\t"author": "${author}",` : '')
+			.replaceAll(/~NAME~/g, name)
+			.replaceAll(/~BYLINE~/g, author ? ` by ${author}` : '');
 
-		fs.writeFileSync(filePath, fileContents.replace(/~PROJECT_NAME~/g, projectName));
+		fs.writeFileSync(filePath, templatedFileContents);
 	});
 }
 

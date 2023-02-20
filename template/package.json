@@ -1,7 +1,7 @@
 {
 	"name": "~PROJECT_NAME~",
 	"version": "1.0.0-pre",
-	"description": "A game for Playdate",
+	"description": "A game for Playdate",~AUTHOR_PROP~
 	"scripts": {
 		"start": "pd dev",
 		"build": "pd",
@@ -11,5 +11,10 @@
 	},
 	"dependencies": {
 		"pddx": "^1.0.2"
+	},
+	"playdate": {
+		"pdxinfo": {
+			"name": "~NAME~"
+		}
 	}
 }

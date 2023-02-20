@@ -56,7 +56,23 @@ async function main() {
 		}
 	}
 
-	await create(cwd);
+	const { author, name } = await prompts([
+		{
+			type: 'text',
+			name: 'name',
+			message: `What's your game called?`,
+			initial: cwd
+				.replace(/^\w/, (match) => match.toUpperCase())
+				.replaceAll(/-(\w)/g, (_match, group1) => ` ${group1.toUpperCase()}`)
+		},
+		{
+			type: 'text',
+			name: 'author',
+			message: `What's your name?`
+		}
+	]);
+
+	await create(cwd, name, author);
 
 	console.log(bold(yellow('\nYour project is ready!')));
 
