@@ -1,22 +1,29 @@
 #!/usr/bin/env node
 import fs from 'fs';
 import path from 'path';
-import { bold, cyan, gray, green } from 'kleur/colors';
+import { bold, cyan, gray, red, yellow } from 'kleur/colors';
 import prompts from 'prompts';
 import { create } from './index.js';
 
-// prettier-ignore
-const disclaimer = `
-${bold(cyan('Welcome to the Playdate project generator!'))}
+const MSG_DISCLAIMER = `
+${bold(yellow('Welcome to the Playdate project generator!'))}
 
-Problems? Open an issue on ${cyan('https://github.com/colingourlay/create-playdate/issues')} if none exists already.
+Problems? Open an issue: ${yellow('https://github.com/colingourlay/create-playdate/issues')}
 `;
+
+const MSG_SDK_PATH = `
+${red(`Warning: The Playdate SDK was not found in your ${cyan('PATH')} environment variable.`)}
+
+Before starting work on your project, remember to download & install the SDK
+from ${yellow('https://play.date/dev/')}${
+	process.platform === 'win32' ? ` and update your ${cyan('PATH')}` : ''
+}`;
 
 const { version } = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf-8'));
 
 async function main() {
 	console.log(gray(`\ncreate-playdate version ${version}`));
-	console.log(disclaimer);
+	console.log(MSG_DISCLAIMER);
 
 	let cwd = process.argv[2] || '.';
 
@@ -51,8 +58,9 @@ async function main() {
 
 	await create(cwd);
 
-	console.log(bold(green('\nYour project is ready!')));
-	console.log('\nNext steps:');
+	console.log(bold(yellow('\nYour project is ready!')));
+
+	console.log('\nNext steps:\n');
 
 	let i = 1;
 	const relative = path.relative(process.cwd(), cwd);
@@ -64,7 +72,11 @@ async function main() {
 	console.log(`  ${i++}: ${bold(cyan('npm install'))}`);
 	console.log(`  ${i++}: ${bold(cyan('npm start'))}`);
 
-	console.log(`\nTo stop the watcher, hit ${bold(cyan('Ctrl-C'))}`);
+	if (!/PlaydateSDK.bin/.test(process.env.PATH)) {
+		console.log(MSG_SDK_PATH);
+	}
+
+	console.log(bold(yellow('\nHappy hacking!')));
 }
 
 main();
