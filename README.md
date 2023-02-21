@@ -36,16 +36,16 @@ The project generator can be called from within your own Node.js codebase. First
 npm install create-playdate
 ```
 
-Then, import the `create` function into your code, and call it with the `path` you want to generate a project in, a `name` for the game and (optionally) the name of the `author`:
+Then, import the `create` function into your code, and call it with the `cwd` you want to generate a project in, a `name` for the game and (optionally) the name of the `author`:
 
 ```js
-import { create } from "create-playdate";
+import { create } from 'create-playdate';
 
-create(
-  "/Users/someone-cool/playdate-games/my-game",
-  "My Game,
-  "Someone Cool"
-);
+create({
+	cwd: '/Users/someone-cool/playdate-games/my-game',
+	name: 'My Game',
+	author: 'Someone Cool'
+});
 ```
 
 ## Attributions

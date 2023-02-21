@@ -72,7 +72,7 @@ async function main() {
 		}
 	]);
 
-	await create(cwd, name, author);
+	await create({ cwd, name, author });
 
 	console.log(bold(yellow('\nYour project is ready!')));
 

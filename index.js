@@ -2,8 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-/** @param {string} cwd */
-export async function create(cwd, name, author = null) {
+/**
+ * @param {Object} options
+ * @param {string} options.cwd
+ * @param {string} options.name
+ * @param {string | undefined} options.author
+ */
+export async function create({ cwd, name, author }) {
 	mkdirp(cwd);
 
 	const projectName = toValidProjectName(path.basename(path.resolve(cwd)));
