@@ -56,7 +56,7 @@ async function main() {
 		}
 	}
 
-	const { author, name } = await prompts([
+	const { author, name, editors } = await prompts([
 		{
 			type: 'text',
 			name: 'name',
@@ -69,10 +69,21 @@ async function main() {
 			type: 'text',
 			name: 'author',
 			message: `What's your name?`
+		},
+		{
+			type: 'multiselect',
+			name: 'editors',
+			message: 'Which editors will you be using, if any?',
+			choices: [
+				{ title: 'Nova', value: 'nova' },
+				{ title: 'Visual Studio Code', value: 'vscode' }
+			],
+			instructions: false,
+			hint: '- Space to select. Enter to submit'
 		}
 	]);
 
-	await create({ cwd, name, author });
+	await create({ cwd, name, author, editors });
 
 	console.log(bold(yellow('\nYour project is ready!')));
 

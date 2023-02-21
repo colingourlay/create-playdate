@@ -7,16 +7,30 @@ import { fileURLToPath } from 'url';
  * @param {string} options.cwd
  * @param {string} options.name
  * @param {string | undefined} options.author
+ * @param {string[] | undefined} options.editors
  */
-export async function create({ cwd, name, author }) {
+export async function create({ cwd, name, author, editors }) {
 	mkdirp(cwd);
 
 	const projectName = toValidProjectName(path.basename(path.resolve(cwd)));
 	const templateDir = fileURLToPath(new URL(`./template`, import.meta.url).href);
+	const templateCommonDir = path.join(templateDir, 'common');
+	const rewritables = ['package.json', 'README.md'];
 
-	copy(templateDir, cwd, (fileName) => fileName.replace('DOT-', '.'));
+	copy(templateCommonDir, cwd, (fileName) => fileName.replace('DOT-', '.'));
 
-	['package.json', 'README.md'].forEach((fileName) => {
+	if (Array.isArray(editors)) {
+		if (editors.includes('nova')) {
+			rewritables.push(path.join('.nova', 'Tasks', 'Playdate Simulator.json'));
+			copy(path.join(templateDir, 'nova'), cwd);
+		}
+
+		if (editors.includes('vscode')) {
+			copy(path.join(templateDir, 'vscode'), cwd);
+		}
+	}
+
+	rewritables.forEach((fileName) => {
 		const filePath = path.join(cwd, fileName);
 		const fileContents = fs.readFileSync(filePath, 'utf-8');
 		const templatedFileContents = fileContents
