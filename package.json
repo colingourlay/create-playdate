@@ -17,12 +17,14 @@
 		"@types/prettier": "^2.4.2",
 		"@types/prompts": "^2.0.14",
 		"eslint": "^8.10.0",
-		"prettier": "^2.5.0"
+		"prettier": "^2.5.0",
+		"release-it": "^15.6.0"
 	},
 	"scripts": {
 		"lint": "eslint --ignore-path .gitignore \"./*.js\" && npm run check-format",
 		"format": "npm run check-format -- --write",
-		"check-format": "prettier --check . --config .prettierrc --ignore-path .gitignore"
+		"check-format": "prettier --check . --config .prettierrc --ignore-path .gitignore",
+		"release": "release-it"
 	},
 	"files": [
 		"bin.js",
