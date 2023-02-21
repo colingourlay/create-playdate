@@ -4,7 +4,7 @@ Generate a Playdate Lua SDK project, which you can then manage with **npm** or *
 
 ## Quick Start
 
-There's nothing to pre-install (except[Node.js](https://nodejs.org/en/)). Run this command in your terminal and answer the handful of prompts:
+There's nothing to pre-install (except [Node.js](https://nodejs.org/en/)). Run this command in your terminal and answer the handful of prompts:
 
 ```sh
 npm create playdate@latest
