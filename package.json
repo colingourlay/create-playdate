@@ -1,7 +1,7 @@
 {
 	"name": "create-playdate",
 	"description": "Generate a Playdate Lua SDK project, which you can then manage with npm or yarn",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/colingourlay/create-playdate"
