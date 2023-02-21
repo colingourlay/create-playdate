@@ -11,13 +11,15 @@ ${bold(yellow('Welcome to the Playdate project generator!'))}
 Problems? Open an issue: ${yellow('https://github.com/colingourlay/create-playdate/issues')}
 `;
 
-const MSG_SDK_PATH = `
+const MSG_ENVIRONMENT_VARIABLES = `
 ${red(`Warning: The Playdate SDK was not found in your ${cyan('PATH')} environment variable.`)}
 
-Before starting work on your project, remember to download & install the SDK
-from ${yellow('https://play.date/dev/')}${
-	process.platform === 'win32' ? ` and update your ${cyan('PATH')}` : ''
-}`;
+Before starting work on your project, remember to:
+
+  1) Download & install the SDK from ${yellow('https://play.date/dev/')}
+  2) Set the ${cyan('PLAYDATE_SDK_PATH')} environment variable to your SDK installation path, and
+  3) Add the SDK's ${cyan('bin')} directory to your ${cyan('PATH')} environment variable
+`;
 
 const { version } = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf-8'));
 
@@ -93,14 +95,14 @@ async function main() {
 	const relative = path.relative(process.cwd(), cwd);
 
 	if (relative !== '') {
-		console.log(`  ${i++}: ${bold(cyan(`cd ${relative}`))}`);
+		console.log(`  ${i++}) ${bold(cyan(`cd ${relative}`))}`);
 	}
 
-	console.log(`  ${i++}: ${bold(cyan('npm install'))}`);
-	console.log(`  ${i++}: ${bold(cyan('npm start'))}`);
+	console.log(`  ${i++}) ${bold(cyan('npm install'))}`);
+	console.log(`  ${i++}) ${bold(cyan('npm start'))}`);
 
 	if (!/PlaydateSDK.bin/.test(process.env.PATH)) {
-		console.log(MSG_SDK_PATH);
+		console.log(MSG_ENVIRONMENT_VARIABLES);
 	}
 
 	console.log(bold(yellow('\nHappy hacking!')));
