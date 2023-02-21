@@ -4,14 +4,10 @@ Generate a Playdate Lua SDK project, which you can then manage with **npm** or *
 
 ## Quick Start
 
-Nothing to install (if you already have [Node.js](https://nodejs.org/en/)). Run either of these commands in your terminal and answer the handful of prompts:
+There's nothing to pre-install (except[Node.js](https://nodejs.org/en/)). Run this command in your terminal and answer the handful of prompts:
 
 ```sh
-# create a new project in the current directory
 npm create playdate@latest
-
-# create a new project in my-game
-npm create playdate@latest my-game
 ```
 
 ## Alternative usage methods
@@ -24,17 +20,13 @@ If you want to pre-install the generator, you can run:
 npm install --global create-playdate
 ```
 
-Then, use one of these commands to generate projects:
+Then, run this command to generate a project:
 
 ```sh
-# create a new project in the current directory
 create-playdate
-
-# create a new project in my-game
-create-playdate my-game
 ```
 
-I wouldn't recommend this though, as it'll be up to you to update the generator manually, whereas `npm create playdate@latest` will always ensure you run latest version.
+I wouldn't recommend this though, as it'll be up to you to update the generator manually, whereas `npm create playdate@latest` (or `yarn create playdate`) will always ensure you run latest version.
 
 ### API ▸ `create` function
 
