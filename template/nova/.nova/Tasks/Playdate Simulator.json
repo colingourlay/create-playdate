@@ -5,7 +5,7 @@
 	},
 	"extensionTemplate": "simulator",
 	"extensionValues": {
-		"playdate.main-path": "src",
+		"playdate.main-path": "source",
 		"playdate.output-path": "dist",
 		"playdate.product-name": "~PROJECT_NAME~-dev"
 	}
