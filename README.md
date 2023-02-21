@@ -1,6 +1,6 @@
 # create-playdate
 
-Manage a Playdate Lua SDK project with Node.js
+Generate a Playdate Lua SDK project, which you can then manage with **npm** or ** yarn**
 
 ## Creating a project
 
