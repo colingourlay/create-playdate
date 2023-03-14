@@ -97,8 +97,8 @@ async function main() {
 	let packageManager = 'npm';
 	let i = 1;
 
-	if (PACKAGE_MANAGER_EXEC_PATH) {
-		if (PACKAGE_MANAGER_EXEC_PATH.indexOf.indexOf('pnpm') > -1) {
+	if (typeof PACKAGE_MANAGER_EXEC_PATH === 'string') {
+		if (PACKAGE_MANAGER_EXEC_PATH.indexOf('pnpm') > -1) {
 			packageManager = 'pnpm';
 		} else if (PACKAGE_MANAGER_EXEC_PATH.indexOf('yarn') > -1) {
 			packageManager = 'yarn';
