@@ -23,7 +23,7 @@ Before starting work on your project, remember to:
 
 const USER_AGENT = process.env.npm_config_user_agent;
 
-const [, PACKAGE_MANAGER] = (USER_AGENT || '').match(/^\w+/) || [, 'npm'];
+const [PACKAGE_MANAGER] = (USER_AGENT || '').match(/^\w+/) || ['npm'];
 
 const { version } = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf-8'));
 
