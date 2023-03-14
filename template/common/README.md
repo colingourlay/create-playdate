@@ -4,7 +4,7 @@ A game for Playdate~BYLINE~
 
 ## Developing
 
-Once you've installed dependencies with `npm install` (or `yarn`), start the watcher:
+Once you've installed dependencies with `npm install` (or `yarn` / `pnpm`), start the watcher:
 
 ```bash
 npm start

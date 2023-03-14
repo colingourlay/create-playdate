@@ -1,6 +1,6 @@
 # create-playdate
 
-Generate a Playdate Lua SDK project, which you can then manage with **npm** or **yarn**
+Generate a Playdate Lua SDK project, which you can then manage with **npm**, **yarn** or **pnpm**
 
 ## Quick Start
 
@@ -26,7 +26,7 @@ Then, run this command to generate a project:
 create-playdate
 ```
 
-I wouldn't recommend this though, as it'll be up to you to update the generator manually, whereas `npm create playdate@latest` (or `yarn create playdate`) will always ensure you run latest version.
+I wouldn't recommend this though, as it'll be up to you to update the generator manually, whereas `npm create playdate@latest` (or `yarn create playdate` / `pnpm create playdate`) will always ensure you run latest version.
 
 ### API ▸ `create` function
 
