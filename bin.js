@@ -21,10 +21,9 @@ Before starting work on your project, remember to:
   3) Add the SDK's ${cyan('bin')} directory to your ${cyan('PATH')} environment variable
 `;
 
-const PACKAGE_MANAGER_EXEC_PATH = process.env.npm_execpath;
+const USER_AGENT = process.env.npm_config_user_agent;
 
-console.log(process.env);
-console.log({ PACKAGE_MANAGER_EXEC_PATH });
+const [, PACKAGE_MANAGER] = (USER_AGENT || '').match(/^\w+/) || [, 'npm'];
 
 const { version } = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf-8'));
 
@@ -97,25 +96,16 @@ async function main() {
 	console.log('\nNext steps:\n');
 
 	const relative = path.relative(process.cwd(), cwd);
-	let packageManager = 'npm';
 	let i = 1;
-
-	if (typeof PACKAGE_MANAGER_EXEC_PATH === 'string') {
-		if (PACKAGE_MANAGER_EXEC_PATH.indexOf('pnpm') > -1) {
-			packageManager = 'pnpm';
-		} else if (PACKAGE_MANAGER_EXEC_PATH.indexOf('yarn') > -1) {
-			packageManager = 'yarn';
-		}
-	}
 
 	if (relative !== '') {
 		console.log(`  ${i++}) ${bold(cyan(`cd ${relative}`))}`);
 	}
 
 	console.log(
-		`  ${i++}) ${bold(cyan(`${packageManager}${packageManager === 'yarn' ? '' : ' install'}`))}`
+		`  ${i++}) ${bold(cyan(`${PACKAGE_MANAGER}${PACKAGE_MANAGER === 'yarn' ? '' : ' install'}`))}`
 	);
-	console.log(`  ${i++}) ${bold(cyan(`${packageManager} start`))}`);
+	console.log(`  ${i++}) ${bold(cyan(`${PACKAGE_MANAGER} start`))}`);
 
 	if (!/PlaydateSDK.bin/.test(process.env.PATH)) {
 		console.log(MSG_ENVIRONMENT_VARIABLES);
