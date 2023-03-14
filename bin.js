@@ -23,10 +23,8 @@ Before starting work on your project, remember to:
 
 const PACKAGE_MANAGER_EXEC_PATH = process.env.npm_execpath;
 
-if (typeof PACKAGE_MANAGER_EXEC_PATH === 'string') {
-	console.log({ PACKAGE_MANAGER_EXEC_PATH });
-	console.log(process.env);
-}
+console.log(process.env);
+console.log({ PACKAGE_MANAGER_EXEC_PATH });
 
 const { version } = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf-8'));
 
