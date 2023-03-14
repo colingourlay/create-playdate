@@ -21,6 +21,8 @@ Before starting work on your project, remember to:
   3) Add the SDK's ${cyan('bin')} directory to your ${cyan('PATH')} environment variable
 `;
 
+const PACKAGE_MANAGER_EXEC_PATH = process.env.npm_execpath;
+
 const { version } = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf-8'));
 
 async function main() {
@@ -91,15 +93,26 @@ async function main() {
 
 	console.log('\nNext steps:\n');
 
-	let i = 1;
 	const relative = path.relative(process.cwd(), cwd);
+	let packageManager = 'npm';
+	let i = 1;
+
+	if (PACKAGE_MANAGER_EXEC_PATH) {
+		if (PACKAGE_MANAGER_EXEC_PATH.indexOf.indexOf('pnpm') > -1) {
+			packageManager = 'pnpm';
+		} else if (PACKAGE_MANAGER_EXEC_PATH.indexOf('yarn') > -1) {
+			packageManager = 'yarn';
+		}
+	}
 
 	if (relative !== '') {
 		console.log(`  ${i++}) ${bold(cyan(`cd ${relative}`))}`);
 	}
 
-	console.log(`  ${i++}) ${bold(cyan('npm install'))}`);
-	console.log(`  ${i++}) ${bold(cyan('npm start'))}`);
+	console.log(
+		`  ${i++}) ${bold(cyan(`${packageManager}${packageManager === 'yarn' ? '' : ' install'}`))}`
+	);
+	console.log(`  ${i++}) ${bold(cyan(`${packageManager} start`))}`);
 
 	if (!/PlaydateSDK.bin/.test(process.env.PATH)) {
 		console.log(MSG_ENVIRONMENT_VARIABLES);
