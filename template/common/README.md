@@ -6,19 +6,21 @@ A game for Playdate~BYLINE~
 
 Once you've installed dependencies with `npm install` (or `yarn` / `pnpm`), start the watcher:
 
-```bash
+```sh
 npm start
 ```
+
+This will run the `build` and `simulate` tasks whenever files change.
 
 ## Building
 
 To build your game's `.pdx`:
 
-```bash
+```sh
 npm run build
 ```
 
-You can now preview the game with `npm run preview`.
+You can now preview the game in the Playdate Simulator with `npm run simulate`.
 
 ## Credits
 
