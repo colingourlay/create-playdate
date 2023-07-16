@@ -6,15 +6,15 @@
 		"start": "pd dev",
 		"build": "pd",
 		"build:release": "NODE_ENV=production pd",
-		"preview": "pd preview",
-		"preview:release": "NODE_ENV=production pd preview"
-	},
-	"dependencies": {
-		"pddx": "^3.2.1"
+		"simulate": "pd simulate",
+		"simulate:release": "NODE_ENV=production pd simulate"
 	},
 	"playdate": {
 		"pdxinfo": {
 			"name": "~NAME~"
 		}
+	},
+	"dependencies": {
+		"pddx": "^3.2.2"
 	}
 }
